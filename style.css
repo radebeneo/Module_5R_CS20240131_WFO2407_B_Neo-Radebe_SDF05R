@@ -52,3 +52,65 @@ p {
 }
 
 /* Add your custom styles for btn-1, btn-2, and btn-3 */
+
+/* Button 1 - Shake Animation */
+/* This button uses a gradient background and shakes horizontally when hovered */
+.btn-1 {
+    background: linear-gradient(45deg, #ff89e9, #05abe0); /* Gradient background */
+    color: #fff; /* White 'Click Here' color */
+    border: none; /* No border */
+}
+.btn-1:hover {
+    animation: shake 0.5s; /* Apply shake animation on hover */
+}
+@keyframes shake {
+    0% { transform: translateX(0); } /* Initial position */
+    25% { transform: translateX(-5px); } /* Move left */
+    50% { transform: translateX(5px); } /* Move right */
+    75% { transform: translateX(-5px); } /* Move left */
+    100% { transform: translateX(0); } /* Return to initial position */
+}
+
+/* Button 2 - Shrink and Grow - Chained Animation */
+/* This button uses a gradient background and shrinks then grows when hovered */
+.btn-2 {
+    background: linear-gradient(45deg, #ffafbd, #ffc3a0); /* Gradient background */
+    border: none; /* No border */
+    overflow: hidden;
+    position: relative;
+    animation: btn2-shrink 0.5s forwards, btn2-grow 0.5s 0.5s forwards; /* Chain shrink and grow animations */
+}
+@keyframes btn2-shrink {
+    from { transform: scale(1); } /* Start at normal size */
+    to { transform: scale(0.9); } /* Shrink to 90% of original size */
+}
+@keyframes btn2-grow {
+    from { transform: scale(0.9); } /* Start from shrunken size */
+    to { transform: scale(1.1); } /* Grow to 110% of original size */
+}
+.btn-2:hover {
+    animation: btn2-hover-shrink 0.5s forwards, btn2-hover-grow 0.5s 0.5s forwards; /* Reverse the animation on hover */
+}
+@keyframes btn2-hover-shrink {
+    from { transform: scale(1.1); } /* Start at larger size */
+    to { transform: scale(0.9); } /* Shrink to 90% of original size */
+}
+@keyframes btn2-hover-grow {
+    from { transform: scale(0.9); } /* Start from shrunken size */
+    to { transform: scale(1.1); } /* Grow to 110% of original size */
+}
+
+/* Button 3 - Rotate Animation */
+/* This button uses a gradient background and rotates 360 degrees when hovered */
+.btn-3 {
+    background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient background */
+    color: #fff; /* White 'Click Here' color */
+    border: none; /* No border */
+}
+.btn-3:hover {
+    animation: rotate 0.6s; /* Apply rotate animation on hover */
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); } /* Start with no rotation */
+    to { transform: rotate(360deg); } /* Rotate a full circle */
+}
